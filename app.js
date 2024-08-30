@@ -8,19 +8,19 @@ const shopRoutes = require('./routes/shop');
 const adminRoutes = require('./routes/admin');
 const contactUsRoutes = require('./routes/contact');
 
+const errorControlller = require('./controllers/error404');
+
 const app= express(); 
 
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({extended : false})); 
 
 app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/admin',adminRoutes);
-app.use('/admin',shopRoutes);
-app.use('/admin',contactUsRoutes);
+app.use(shopRoutes);
+app.use(contactUsRoutes);
 
 
-app.use((req,res) => {
-    res.sendFile(path.join(__dirname,'views','Error.html'));
-})
+app.use(errorControlller.getError);
 
 app.listen(3000);        
