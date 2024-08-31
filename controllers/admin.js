@@ -2,7 +2,7 @@ const rootDir = require('../util/path');
 
 const path = require('path');
 
-const Product = require('../data/models/product');
+const Product = require('../models/product');
 
 exports.getAddProduct = (req,res,next) => {
     res.sendFile(path.join(rootDir,'views','add-product.html'));
