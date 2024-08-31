@@ -6,8 +6,8 @@ const router = express.Router();
 
 const rootDir = require('../util/path');
 
-router.get('/',(req,res) =>{
-    res.sendFile(path.join(rootDir,'views','shop.html'));
-});
+const shopController = require('../controllers/shop');
+
+router.get('/',shopController.getShop);
 
 module.exports = router;
