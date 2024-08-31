@@ -1,3 +1,4 @@
+//const path =require('path');
 const products = [];
 
 module.exports = class Product {
@@ -13,4 +14,5 @@ module.exports = class Product {
     static fetchAll() {
         return products;
     }
-} 
+
+}
